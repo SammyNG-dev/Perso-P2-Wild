@@ -1,0 +1,97 @@
+div.game-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8em;
+  border-radius: 20px;
+  color: #fcf9db;
+  padding: 0.5em;
+  margin: auto;
+  position: relative;
+  border: 1px #fcf9db solid;
+  box-shadow: -3px 0px 0px #fcf9db;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+div.game-details img {
+  width: 250px;
+  height: auto;
+  border-radius: 2em;
+}
+div.display-game {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+a {
+  padding-right: 20px;
+  color: #fcf9db;
+}
+#like-button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+}
+button#return {
+  background-color: transparent;
+  border: none;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  margin-left: 110px;
+  margin-right: 110px;
+}
+#return:hover {
+  transform: scale(1.1);
+}
+#return img {
+  width: 80px;
+  height: auto;
+}
+/* Tablette */
+@media screen and (min-width: 768px) {
+  button#return {
+    margin-right: 280px;
+    margin-left: 280px;
+  }
+  div.game-details img {
+    width: 30em;
+    height: auto;
+  }
+  div.display-game {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+}
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  div.game-details img {
+    width: 35em;
+    height: auto;
+  }
+  div.display-game {
+    margin-left: 400px;
+    margin-right: 400px;
+  }
+  div.game-details {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  p {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+  #return img {
+    width: 140px;
+    height: auto;
+  }
+  button#return {
+    margin-left: 210px;
+    margin-right: 200px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+}

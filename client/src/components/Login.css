@@ -1,0 +1,86 @@
+.div-form {
+  color: #fcf9db;
+  text-align: center;
+  font-family: "Julee", sans-serif;
+  padding-top: 5em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.username,
+.password {
+  height: 3em;
+  background-color: #fcf9db;
+}
+
+.button-login {
+  background-color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.login-logo {
+  height: 10em;
+}
+
+#offline-status {
+  color: #fcf9db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#offline-status img {
+  width: 5em;
+}
+
+/* version tablette */
+@media (min-width: 768px) {
+  .login-logo {
+    height: 10em;
+  }
+  #offline-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #offline-status img {
+    width: 5em;
+  }
+  .username,
+  .password {
+    width: 20em;
+  }
+}
+
+/* version desktop */
+@media (min-width: 1024px) {
+  .login-logo {
+    height: 13em;
+  }
+
+  #offline-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  #offline-status img {
+    width: 10em;
+  }
+  #offline-status p {
+    padding: 0;
+    font-size: 3em;
+  }
+}

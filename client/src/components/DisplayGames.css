@@ -1,0 +1,173 @@
+h1.libre-baskerville-regular {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 0;
+  font-size: x-large;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.mainCard {
+  background-color: black;
+  color: #fcf9db;
+  text-align: center;
+  margin-top: 0;
+}
+div.game-card {
+  padding-top: 1em;
+  border: 2px #fcf9db solid;
+  box-shadow: -3px 0px 0px #fcf9db;
+  border-radius: 10%;
+  margin-left: 1em;
+  margin-right: 1em;
+  gap: 1em;
+  width: 10em;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+div.game-card img {
+  height: auto;
+  border-radius: 10%;
+}
+div.game-card:hover {
+  transform: scale(1.1);
+}
+
+.button button {
+  margin-top: 20px;
+  background-color: transparent;
+  border: none;
+}
+.button img {
+  width: 70px;
+}
+
+div.games-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(10px); /* Distance plus courte */
+  }
+}
+
+@keyframes slideBackRight {
+  0% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10px); /* Distance plus courte */
+  }
+}
+
+@keyframes slideBackLeft {
+  0% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* Tablette */
+@media screen and (min-width: 768px) {
+  div.games-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  div.game-card {
+    width: 20em;
+  }
+  div.game-card img {
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .mainCard {
+    align-items: center;
+  }
+  div.game-details p {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  div.games-list {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    margin-left: 15em;
+    margin-right: 15em;
+    margin-top: 2em;
+    gap: 5em;
+  }
+  div.game-card {
+    border-radius: 10%;
+    gap: 1em;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  div.game-card img {
+    width: 100%;
+    border-radius: 10%;
+  }
+  h1.libre-baskerville-regular {
+    font-size: xx-large;
+    padding-top: 1em;
+    margin-top: 0;
+  }
+
+  div.button {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 40px;
+  }
+  h3 {
+    font-size: xx-large;
+  }
+  .button img {
+    width: 140px;
+  }
+  #button-right:hover {
+    animation: slideRight 0.3s ease-in-out forwards;
+    cursor: pointer;
+  }
+
+  #button-right {
+    animation: slideBackRight 0.3s ease-in-out;
+  }
+
+  #button-left:hover {
+    animation: slideLeft 0.3s ease-in-out forwards;
+    cursor: pointer;
+  }
+
+  #button-left {
+    animation: slideBackLeft 0.3s ease-in-out;
+  }
+}
