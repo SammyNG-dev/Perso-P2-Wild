@@ -5,19 +5,8 @@ import DisplayGame from "./DisplayGame";
 const DisplayGames = () => {
   const { games, selectedGameId, setSelectedGameId, isLoading, error } =
     useGames();
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayedGames, setDisplayedGames] = useState(games)
 
-  const onPrevious = () => {
-    setCurrentIndex((currentIndex) =>
-      currentIndex - 4 < 0 ? games.length - 4 : currentIndex - 4,
-    );
-  };
-
-  const onNext = () => {
-    setCurrentIndex((currentIndex) =>
-      currentIndex + 4 >= games.length ? 0 : currentIndex + 4,
-    );
-  };
 
   if (isLoading) {
     return <p>Loading games...</p>;
@@ -27,7 +16,6 @@ const DisplayGames = () => {
     return <p>{error}</p>;
   }
 
-  const displayedGames = games.slice(currentIndex, currentIndex + 4);
 
   // Si un jeu est sélectionné, afficher le composant DisplayGame
   if (selectedGameId !== null) {
@@ -39,9 +27,35 @@ const DisplayGames = () => {
     setSelectedGameId(gameId);
   };
 
+  const alphabet = "abdefghijklmnopqrstuvwxyz#"
+  .toUpperCase()
+  .split("")
+  
+  function handleClickLetter(l: string){ // l est la lettre sélectionnée
+    if(l !== "#"){
+      setDisplayedGames(games.filter((game)=>game.title[0].toUpperCase() === l.toUpperCase()))
+    } else {
+      setDisplayedGames(games)
+    }
+  }
+
+
   return (
     <div className="mainCard">
       <h1 className="libre-baskerville-regular">List of games</h1>
+      <div id="alphabet">
+        {alphabet.map((letter)=>{
+          return (
+            <button
+            className="letter-button"
+            key={letter}
+            type="button"
+            onClick={()=>handleClickLetter(letter)}>
+              {letter}
+            </button>
+          )
+        })}
+      </div>
       <div className="games-list">
         {displayedGames.map((game) => (
           <div
@@ -62,14 +76,6 @@ const DisplayGames = () => {
             <h3>{game.title}</h3>
           </div>
         ))}
-      </div>
-      <div className="button">
-        <button id="button-left" type="button" onClick={onPrevious}>
-          <img src="src\assets\images\Précédent.png" alt="Forward" />
-        </button>
-        <button id="button-right" type="button" onClick={onNext}>
-          <img src="src\assets\images\Suivant.png" alt="Next" />
-        </button>
       </div>
     </div>
   );

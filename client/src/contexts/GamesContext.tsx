@@ -23,7 +23,7 @@ interface GamesContextType {
   error: string | null;
 }
 
-const GamesContext = createContext<GamesContextType | undefined>(undefined);
+const GamesContext = createContext<GamesContextType | null>(null);
 
 export const useGames = () => {
   const context = useContext(GamesContext);
