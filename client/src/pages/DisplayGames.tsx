@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { type SetStateAction, useState } from "react";
 import { useGames } from "../contexts/GamesContext";
 import DisplayGame from "./DisplayGame";
 
@@ -6,6 +6,7 @@ const DisplayGames = () => {
   const { games, selectedGameId, setSelectedGameId, isLoading, error } =
     useGames();
   const [displayedGames, setDisplayedGames] = useState(games)
+  const [ inputSearch, setInputSearch ] = useState("")
 
 
   if (isLoading) {
@@ -31,12 +32,17 @@ const DisplayGames = () => {
   .toUpperCase()
   .split("")
   
-  function handleClickLetter(l: string){ // l est la lettre sélectionnée
+  function handleClickLetter(l: string){ // l est cla lettre sélectionnée
     if(l !== "#"){
       setDisplayedGames(games.filter((game)=>game.title[0].toUpperCase() === l.toUpperCase()))
     } else {
       setDisplayedGames(games)
     }
+  }
+
+  const handleChangeInputSearch = (event: { target: { value: SetStateAction<string>; }; }) => {
+    setInputSearch(event.target.value)
+    setDisplayedGames(games.filter((game)=>game.title.toLowerCase().includes(inputSearch.toLowerCase())))
   }
 
 
@@ -56,6 +62,7 @@ const DisplayGames = () => {
           )
         })}
       </div>
+      <input id="search-bar" type="text" value={inputSearch} onChange={handleChangeInputSearch} />
       <div className="games-list">
         {displayedGames.map((game) => (
           <div
